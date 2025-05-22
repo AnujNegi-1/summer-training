@@ -53,16 +53,41 @@ x = 5
 y = 10
 
 x, y = y, x
-print("x =", x)    i = 0
+print("x =", x)  
+
+# For loop
+# Using break
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    if fruit == "banana":
+        break
+    print(fruit)
+# Output:
+# apple
+
+# Using continue
+for i in range(5):
+    if i == 2:
+        continue
+    print(i)
+# Output:
+# 0
+# 1
+# 3
+# 4
+
+# While loop
+    i = 0
+    while (i < 5) {
+        print("i is:", i)
+        i++
+    }
+
+# Do-While loop
+i = 0
     do {
         print("i is:", i)
         i++
     } while (i < 5)
 
-        i = 0
-    while (i < 5) {
-        print("i is:", i)
-        i++
-    }
-print("y =", y)
-
+       
