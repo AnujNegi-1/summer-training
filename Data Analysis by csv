@@ -1,0 +1,70 @@
+# Starting cretate graph through csv data
+import pandas as pd 
+import numpy as np
+
+!pip install plotly
+
+import plotly.express as px
+import plotly.io as pio
+import plotly.graph_objects as go
+pio.templates.defailt = "plotely_white"
+
+# then read the file 
+df=pd.read_csv('/content/supply_chain.csv')
+
+# then describe the data in the form of table
+df.describe()
+
+# convert the table form data into a graphical representation
+fig = px.scatter(df,x='Price',
+               y='Revenue generated',
+               color='Product type',
+               hover_data=['Number of products sold'],
+               trendline='ols')
+fig.show()
+
+# then convert it into a pie chart form 
+sales_data =df.groupby('Product type')['Number of products sold'].sum().reset_index()
+
+# sales_data
+pie_chart = px.pie(sales_data, values= 'Number of products sold',
+                  names='Product type',
+                  title='Sales by Product Type',
+                  hover_data=['Number of products sold'],
+                  hole=0.5,
+                  color_discrete_sequence=px.colors.qualitative.Pastel)
+
+pie_chart.update_traces (textposition='inside', textinfo='percent+label')
+pie_chart.show()
+
+# Shipping Carriers
+total=revenue =df.groupby ('Shipping carriers')['Revenue generated'].sum().reset_index()
+total
+fig = go.Figure()
+fig.add_trace(go.Bar(x=total_revenue['Shipping carriers'],
+                     y=total_revenue['Revenue generated']))
+fig.update_layout(title='Total Revenue by Shipping Carrier',
+                  xaxis_title='Shipping Carrier',
+                  yaxis_title='Revenue Generated')
+
+fig.show()
+
+# Average lead time 
+avg_lead_time = df.groupby('Product type')['Lead time'].mean().reset_index()
+#avg Lead time
+avg_manufacturing_costs = df.groupby('Product type')['Manufacturing costs'].mean().reset_index()
+result = pd.merge(avg_lead_time, avg_manufacturing_costs,
+                  on='Product type')
+result.rename(columns={'Lead time': 'Average Lead Time', "Manufacturing costs": 'Average Manufacturing Costs'},
+ inplace=True)
+print(result)
+
+# Transportation Pie chart
+transportation_chart =px.pie(df,
+values='Costs',
+names= 'Transportation modes',
+title='Cost Distribution by Transportation Mode',
+hole=0.5,
+color_discrete_sequence=
+px.colors.qualitative. Pastel)
+transportation_chart.show()
