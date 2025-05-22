@@ -53,5 +53,16 @@ x = 5
 y = 10
 
 x, y = y, x
-print("x =", x)
+print("x =", x)    i = 0
+    do {
+        print("i is:", i)
+        i++
+    } while (i < 5)
+
+        i = 0
+    while (i < 5) {
+        print("i is:", i)
+        i++
+    }
 print("y =", y)
+
