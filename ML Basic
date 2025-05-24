@@ -1,0 +1,61 @@
+import pandas as pd
+
+df = pd.read_csv('/content/covid_toy.csv')
+df.head(3)
+
+## Return total missing values in a data frame
+df.isnull().sum() 
+from sklearn.impute import SimpleImputer
+
+si = SimpleImputer()
+
+df['fever']= si.fit_transform(df[['fever']])
+
+df['has_covid'].value_counts()
+
+df['gender'] = df['gender'].map({"female":0 ,"male":1})
+
+df['cough'] = df['cough'].map({"mild":0 ,"strong":1})
+
+df['city'] = df['city'].map({
+    "Kolkata":0,
+    "Delhi":1,
+    "Mumbai":2,
+    "Bangalore":3,
+})
+
+df['has_covid'] = df['has_covid'].map({"No":0 ,"Yes":1})
+
+x=df.drop(columns=['has_covid'])
+y=df['has_covid']
+
+from sklearn.model_selection import train_test_split
+
+x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.2)
+print("Total Data Shape:", df.shape)
+
+print("----------------------------------")
+print("Input data Shape:", x.shape)
+print("Train Data Shape:", x_train.shape)
+print("Test Data Shape:", x_test.shape)
+print("----------------------------------")
+print("Output data Shape:", y.shape)
+print("Train Output Data Shape:", y_train.shape)
+print("Test Output Data Shape:", y_test.shape)
+print("----------------------------------")
+
+y_train,y_test,x_train,x_test
+
+import numpy as np
+
+np.round(x_train.describe(),2)
+
+from sklearn.preprocessing import StandardScaler
+
+## it will convert our data into a mean centroid (mean=0, std=1)
+sc = StandardScaler   
+X_train_sc = sc.fit_transform(x_train)
+
+x_train_new = pd.DataFrame(x_train_sc, columns=x_train.columns)
+
+np.round(x_train_new.describe(),2)
