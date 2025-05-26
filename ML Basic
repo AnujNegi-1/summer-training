@@ -59,3 +59,9 @@ X_train_sc = sc.fit_transform(x_train)
 x_train_new = pd.DataFrame(x_train_sc, columns=x_train.columns)
 
 np.round(x_train_new.describe(),2)
+
+# Encoding ---> Transform our categorical data into numerical data.
+
+# Label Encoding ---> It Will encode the data by single-single column.
+
+onehot encoder --> convert the categorical variables into a binary format 
