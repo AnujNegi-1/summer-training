@@ -65,3 +65,15 @@ np.round(x_train_new.describe(),2)
 # Label Encoding ---> It Will encode the data by single-single column.
 
 onehot encoder --> convert the categorical variables into a binary format 
+
+
+Promant Engineering --->   the process of structuring or crafting an instruction in order to produce the best possible output from a generative artificial intelligence (AI) model. 				    A prompt is natural language text describing the task that an AI should perform.
+
+types :--
+1.Zero-Shot Prompting: Asking the AI a question or giving it a task without any examples. The AI has to figure it out on its own based only on what you asked.
+
+2. One-Shot Prompting: Giving the AI one example along with your question or task. This helps the AI understand what kind of answer you are looking for.
+
+3. Few-Shot Prompting: Providing the AI with a few examples (usually 2 to 5) to show it how to respond. This gives the AI a better idea of what you want.
+
+4. Chain-of-Thought Prompting: Encouraging the AI to think step-by-step to solve a problem. This helps it break down complex questions into simpler parts to give a clearer answer.
