@@ -52,4 +52,3 @@ history = RNN_model.fit(x_train, y_train,
 
 print()
 print("Simple_RNN Score---> ", RNN_model.evaluate(x_test, y_test))
-
