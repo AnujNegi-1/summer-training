@@ -14,5 +14,4 @@ prompt = "An astronaut riding a green horse" # Your prompt here
 neg_prompt = "ugly, blurry, poor quality" # Negative prompt here
 image = pipe(prompt=prompt, negative_prompt=neg_prompt).images[0]
 
-
 display(image)
