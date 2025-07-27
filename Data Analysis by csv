@@ -95,4 +95,3 @@ hole=0.5,
 color_discrete_sequence=
 px.colors.qualitative. Pastel)
 transportation_chart.show()
-
